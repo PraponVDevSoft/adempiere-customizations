@@ -1,14 +1,5 @@
 # ADempiere Customizations
 
-> [!IMPORTANT]
-> This repository is part of the [ADempiere UI Gateway](https://github.com/adempiere/adempiere-ui-gateway) stack —
-> a set of cooperating services that together provide the ADempiere web and gRPC frontend.
-> The migration of all stack repositories from the [Systemhaus-Westfalia](https://github.com/Systemhaus-Westfalia)
-> organization to the [ADempiere](https://github.com/adempiere) organization is currently in progress.
-> Until the complete stack has been migrated and validated end-to-end, this repository should be considered
-> **under construction**. Interfaces and configuration may change without notice.
-> Production use is not yet recommended.
-
 Template repository for organization-specific ADempiere customizations.
 Fork this repository to add your own Java patches, library dependencies, and localization modules.
 
@@ -111,3 +102,16 @@ Implementors publishing from a fork do **not** need these secrets — GitHub Pac
 - `PGP_SECRET`: GPG private key (base64-encoded).
 - `OSSRH_USERNAME`: Sonatype username.
 - `OSSRH_TOKEN`: Sonatype token.
+
+---
+
+## Integration with adempiere-ui-gateway
+
+Releasing a new version of this repository triggers a chain of dependent
+container releases that ends with updated Docker image tags in
+`adempiere-ui-gateway`. Template scripts that automate this chain are provided
+in `scripts/templates/`.
+
+See [docs/customization-workflow.md](docs/customization-workflow.md) for the
+full dependency diagram, step-by-step propagation description, required
+permissions, and script setup instructions.

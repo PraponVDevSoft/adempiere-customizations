@@ -14,3 +14,6 @@ gradle-wrapper*
 
 # Enviroment variable file
 .env
+
+# Local (filled-in) copies of template scripts — never commit these
+scripts/local/
